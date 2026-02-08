@@ -1,4 +1,11 @@
 # huawei-router-signal-refresh
+Am currently using a Huawei CPE PRO 3 Model: H138-380.
+I noticed the router sometime loses 5G signal leading to reduced speeds on 4G mode.
+The fix is always going into router page and doing a signal test. This action refreshed the mobile signals received by the router and activates 5G speeds.
+Thus I created an automation script that automatcically log-ins to your router and press the necessary buttons to this task every hour.
+I have connected a raspberry Pi4 on the router's LAN port so it can connect to 192.168.8.1 which is the router web page.
+
+
 
 Prerequisites & Setup for Raspberry Pi
 1. System Installation
