@@ -4,13 +4,15 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options
-#from webdriver_manager.chrome import ChromeDriverManager
 import time
+#from webdriver_manager.chrome import ChromeDriverManager  <-- Uncomment To make it work on mac or linux
 
 # --- 1. CONFIGURATION ---
+
 ROUTER_URL = "http://192.168.8.1" 
-PASSWORD = "Kello@4567"  # <-- REPLACE WITH YOUR PASSWORD
+PASSWORD = "IsThisMyPa$$WORD?"  # <-- REPLACE WITH YOUR PASSWORD
 CHROMEDRIVER_PATH = "/usr/bin/chromedriver"
+
 # --- XPATHS ---
 XPATH_PASSWORD_FIELD    = '//*[@id="login_password"]'
 XPATH_LOGIN_BUTTON      = '//*[@id="login_btn"]'
@@ -24,7 +26,7 @@ driver = None
 try:
     print("Starting router automation script...")
     
-    # Initialize the Driver
+   # Initialize the Driver
    # service = ChromeService(ChromeDriverManager().install())
 
     chrome_options = Options()
@@ -38,11 +40,12 @@ try:
     driver.get(ROUTER_URL)
     
     # ----------------------------------------------------
-    # PART A: LOGIN (PASSWORD ONLY) 🔑
+    # PART A: LOGIN (PASSWORD ONLY LOGIN SCREEN)
     # ----------------------------------------------------
     print("\n--- A. Logging In ---")
     
     # Wait for the password field to be ready
+
     WebDriverWait(driver, 15).until(
         EC.presence_of_element_located((By.XPATH, XPATH_PASSWORD_FIELD))
     )
@@ -58,8 +61,9 @@ try:
     time.sleep(5) 
     
     # ----------------------------------------------------
-    # PART B: FIRST CLICK: Optimize location 📍
+    # PART B: FIRST CLICK: Optimize location Button
     # ----------------------------------------------------
+
     print("\n--- B. Starting Optimization Process ---")
     
     # Wait for the first button to become clickable
@@ -73,8 +77,9 @@ try:
     time.sleep(5) 
     
     # ----------------------------------------------------
-    # PART C: SECOND CLICK: Start Test 🚀
+    # PART C: SECOND CLICK: Start Test Button
     # ----------------------------------------------------
+
     print("\n--- C. Starting Signal Test ---")
     
     # Wait for the SECOND button to become clickable
