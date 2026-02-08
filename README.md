@@ -13,24 +13,30 @@ Raspberry Pi OS (especially the 64-bit version) is recommended. You must install
 
 Bash
 # Update the system
+
 sudo apt update && sudo apt upgrade -y
 
 # Install Chromium and the Driver
+
 sudo apt install -y chromium-browser chromium-chromedriver
+
 2. Python Environment Setup (venv)
 To avoid conflicting with system-wide packages, we create a virtual environment.
 
-Bash
 # Navigate to your script's folder
+
 cd /home/pi/huawei_router_automation
 
 # Create a virtual environment named 'venv'
+
 python3 -m venv venv
 
 # Activate the environment
+
 source venv/bin/activate
 
 # Install Selenium
+
 pip install selenium
 Scheduling the Script with Cron
 Since this script manages your router's signal optimization, you likely want it to run automatically (e.g., every morning at 4:00 AM).
@@ -45,8 +51,8 @@ Script Path: Type readlink -f your_script_name.py. (e.g., /home/pi/huawei_router
 Step 2: Edit Crontab
 Open the cron scheduler:
 
-Bash
 crontab -e
+
 Step 3: Add the Schedule
 Add this line to the bottom of the file (adjusting the paths to match your results from Step 1):
 
